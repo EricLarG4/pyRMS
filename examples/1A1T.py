@@ -16,7 +16,7 @@ full_structure = calc_rms(
     "1A1T",
     selection="all",
     quiet=False,
-    display_level=1,
+    display_level=2,
     export_report=True,
     report_path="./examples/reports"
 )
@@ -26,7 +26,7 @@ rna_only = calc_rms(
     "1A1T",
     selection="resn A+G+C+U",
     quiet=False,
-    display_level=1,
+    display_level=2,
     export_report=True,
     report_path="./examples/reports"
 )
@@ -36,7 +36,16 @@ protein_only = calc_rms(
     "1A1T",
     selection="chain A and not resn ZN",
     quiet=False,
-    display_level=1,
+    display_level=2,
+    export_report=True,
+    report_path="./examples/reports"
+)
+
+protein_backbone = calc_rms(
+    "1A1T",
+    selection="chain A and backbone",
+    quiet=False,
+    display_level=2,
     export_report=True,
     report_path="./examples/reports"
 )

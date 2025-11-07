@@ -80,7 +80,16 @@ If called without arguments, `calculate_rms_stats()` will display help informati
 
 ### Interactive (PyMOL GUI)
 
-Example interactive calls for the 1A1T structure:
+The minimal usage from the PyMOL command line is as follows:
+```python
+calculate_rms_stats object_name
+```
+Where `object_name` is the name of the multistate object loaded in PyMOL.
+This will output RMS statistics for all atoms and heavy atoms (no hydrogens)
+with default settings.
+**No chain/residue/atom filtering** is applied (selection = "all"), and no report file is generated.
+
+Below is an example of advanced use for the 1A1T structure:
 
 ``` python
 # Load example structure
@@ -106,8 +115,6 @@ rna_only = calculate_rms_stats(\
     report_path="."\
 )
 
-print(rna_only)
-
 # Caculate RMS stats for protein only (chain B)
 protein_only = calculate_rms_stats(\
     "1A1T",\
@@ -118,7 +125,15 @@ protein_only = calculate_rms_stats(\
     report_path="."\
 )
 
-print(protein_only)
+# Calculate RMS stats for protein backbone only (chain B + backbone atoms)
+protein_backbone = calculate_rms_stats(\
+    "1A1T",\
+    selection="chain A and backbone",\
+    quiet=False,\
+    display_level=1,\
+    export_report=False,\
+    report_path="."\
+)
 
 # Access summary values
 
@@ -155,7 +170,7 @@ full_structure = calc_rms(
     "1A1T",
     selection="all",
     quiet=False,
-    display_level=1,
+    display_level=2,
     export_report=True,
     report_path="./examples/reports"
 )
@@ -165,7 +180,7 @@ rna_only = calc_rms(
     "1A1T",
     selection="resn A+G+C+U",
     quiet=False,
-    display_level=1,
+    display_level=2,
     export_report=True,
     report_path="./examples/reports"
 )
@@ -175,7 +190,16 @@ protein_only = calc_rms(
     "1A1T",
     selection="chain A and not resn ZN",
     quiet=False,
-    display_level=1,
+    display_level=2,
+    export_report=True,
+    report_path="./examples/reports"
+)
+
+protein_backbone = calc_rms(
+    "1A1T",
+    selection="chain A and backbone",
+    quiet=False,
+    display_level=2,
     export_report=True,
     report_path="./examples/reports"
 )
@@ -191,6 +215,7 @@ print(f"Overall mean RMS (all atoms): {mean_all:.2f} +/- {sd_all:.2f} Å")
 mean_no_hydrogen = full_structure["modes"]["no_hydrogen"]["overall_mean"]
 sd_no_hydrogen = full_structure["modes"]["no_hydrogen"]["overall_sd"]
 print(f"Overall mean RMS (no hydrogens): {mean_no_hydrogen:.2f} +/- {sd_no_hydrogen:.2f} Å")
+
 ```
 
 ## Report output
