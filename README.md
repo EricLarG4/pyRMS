@@ -4,11 +4,11 @@ PyRMS is a small Python utility and PyMOL plugin for calculating pairwise RMS de
 
 ## Features
 
--   Compute RMS deviations per state and for arbitrary atom selections\
--   Automatic calculation for both "all" atoms and "heavy" atoms (no hydrogens)\
--   Per-state and per-pair RMS reporting (summary and full detail modes)\
--   Optional export of timestamped text reports\
--   Configurable verbosity and display levels
+- Compute RMS deviations per state and for arbitrary atom selections\
+- Automatic calculation for both "all" atoms and "heavy" atoms (no hydrogens)\
+- Per-state and per-pair RMS reporting (summary and full detail modes)\
+- Optional export of timestamped text reports\
+- Configurable verbosity and display levels
 
 ## Installation
 
@@ -16,27 +16,27 @@ Choose one of the following install workflows.
 
 ### For PyMOL GUI use
 
-1.  Open PyMOL (version 2.0 or higher recommended).
-2.  Download `rms_calculator.py` and place it in a directory accessible by PyMOL.
-3.  Load the script from within PyMOL (File → Open).
-4.  The function `calculate_rms_stats` can then be called from the PyMOL command line.
+1. Open PyMOL (version 2.0 or higher recommended).
+2. Download `rms_calculator.py` and place it in a directory accessible by PyMOL.
+3. Load the script from within PyMOL (File → Open).
+4. The function `calculate_rms_stats` can then be called from the PyMOL command line.
 
 Alternatively, you can proceed without downloading the script, and replace steps
 2 and 3 by pasting the following command directly into the PyMOL command line:
 
-``` python	
+```python
 run https://raw.githubusercontent.com/EricLarG4/pyRMS/refs/heads/main/rms_calculator.py
-```  
+```
 
 ### For scripted/IDE use
 
-1.  Ensure you have Python 3.11+ installed.
-2.  Download or clone the repository.
-3.  Create an environment and install dependencies *via*:
+1. Ensure you have Python 3.11+ installed.
+2. Download or clone the repository.
+3. Create an environment and install dependencies *via*:
 
 Conda (recommended for standalone/scripted use)
 
-``` bash
+```bash
 conda env create -f environment.yml
 conda activate pyrms
 ```
@@ -45,29 +45,29 @@ There is also a pyproject.toml for pip/poetry users, however PyMOL installation 
 
 ## Parameters
 
-| Parameter | Type | Default | Description |
-|------------------|----------------|----------------|----------------------|
-| `obj_to_fit` | str | — | PyMOL object name or selection to analyze (required) |
-| `selection` | str | `"all"` | Additional PyMOL selection string |
-| `quiet` | bool | `False` | Suppress printing when `True` |
-| `display_level` | int | `1` | 0 → summary only, 1 → per-state means, 2 → full per-pair detail |
-| `export_report` | bool | `False` | Export timestamped report to a file when `True` |
-| `report_path` | str | `.` | Directory to save exported report |
+| Parameter         | Type | Default   | Description                                                        |
+| ----------------- | ---- | --------- | ------------------------------------------------------------------ |
+| `obj_to_fit`    | str  | —        | PyMOL object name or selection to analyze (required)               |
+| `selection`     | str  | `"all"` | Additional PyMOL selection string                                  |
+| `quiet`         | bool | `False` | Suppress printing when `True`                                    |
+| `display_level` | int  | `1`     | 0 → summary only, 1 → per-state means, 2 → full per-pair detail |
+| `export_report` | bool | `False` | Export timestamped report to a file when `True`                  |
+| `report_path`   | str  | `.`     | Directory to save exported report                                  |
 
 ## Returns
 
 The function returns a dictionary with RMS statistics and metadata. Typical keys:
 
--   `modes`: detailed stats for `"all"` and `"no_hydrogen"` modes\
--   `selection`: resolved selection string used for calculations\
--   `atom_counts`: atom counts per mode\
--   `states`: number of states analyzed\
--   `report_file`: path to the exported report (if `export_report=True`)\
--   `error`: optional error messages (present only on failure)
+- `modes`: detailed stats for `"all"` and `"no_hydrogen"` modes\
+- `selection`: resolved selection string used for calculations\
+- `atom_counts`: atom counts per mode\
+- `states`: number of states analyzed\
+- `report_file`: path to the exported report (if `export_report=True`)\
+- `error`: optional error messages (present only on failure)
 
 Example access:
 
-``` python
+```python
 mean_all = result["modes"]["all"]["overall_mean"]
 state_means = result["modes"]["no_hydrogen"].get("state_means")
 ```
@@ -81,9 +81,11 @@ If called without arguments, `calculate_rms_stats()` will display help informati
 ### Interactive (PyMOL GUI)
 
 The minimal usage from the PyMOL command line is as follows:
+
 ```python
 calculate_rms_stats object_name
 ```
+
 Where `object_name` is the name of the multistate object loaded in PyMOL.
 This will output RMS statistics for all atoms and heavy atoms (no hydrogens)
 with default settings.
@@ -91,7 +93,7 @@ with default settings.
 
 Below is an example of advanced use for the 1A1T structure:
 
-``` python
+```python
 # Load example structure
 cmd.fetch("1A1T")
 
@@ -156,13 +158,13 @@ print(f"RMS between state 1 and state 10 (protein only): {state_1_to_10_rms:.2f}
 
 Examples from a Python script, available in the `examples/` directory. Reports will be saved to `./examples/reports/`.
 
-``` python
+```python
 # Import necessary modules
 from pymol import cmd
 from rms_calculator import calculate_rms_stats as calc_rms
 
 # Load example structure
-cmd.reinitialize # Clear existing data to avoid conflicts (PyMOL error: loading mmCIF into existing object not supported)
+cmd.reinitialize("everything") # Clear existing data to avoid conflicts (PyMOL error: loading mmCIF into existing object not supported)
 cmd.fetch("1A1T")
 
 # Calculate RMS stats for all atoms (+/- hydrogens)
@@ -220,8 +222,8 @@ print(f"Overall mean RMS (no hydrogens): {mean_no_hydrogen:.2f} +/- {sd_no_hydro
 
 ## Report output
 
--   When `export_report=True`, PyRMS writes a timestamped text report to `report_path` (default: current working directory).\
--   The report contains per-state summaries and, if `display_level=2`, full per-pair RMS details. The returned dictionary includes `report_file` with the report path when exported.
+- When `export_report=True`, PyRMS writes a timestamped text report to `report_path` (default: current working directory).\
+- The report contains per-state summaries and, if `display_level=2`, full per-pair RMS details. The returned dictionary includes `report_file` with the report path when exported.
 
 ## License
 

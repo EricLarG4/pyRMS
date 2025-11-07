@@ -8,7 +8,7 @@ from pymol import cmd
 from rms_calculator import calculate_rms_stats as calc_rms
 
 # Load example structure
-cmd.reinitialize # Clear existing data to avoid conflicts (PyMOL error: loading mmCIF into existing object not supported)
+cmd.reinitialize("everything") # Clear existing data to avoid conflicts (PyMOL error: loading mmCIF into existing object not supported)
 cmd.fetch("1A1T")
 
 # Calculate RMS stats for all atoms (+/- hydrogens)
