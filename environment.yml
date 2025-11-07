@@ -4,6 +4,7 @@ channels:
 dependencies:
   - python=3.11
   - pymol-open-source>=2.5.0
+  - ipywidgets
   - pip
   - pip:
       - typing-extensions>=4.0.0
