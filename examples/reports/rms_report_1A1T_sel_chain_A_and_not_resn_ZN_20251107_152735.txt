@@ -1,0 +1,88 @@
+
+*****************************
+* RMS Statistics Calculator *
+*****************************
+
+The level of detail in this report has been set to => 1 (global average and per-state means included)
+
+############ Data selection ############
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Resolved selection: (1A1T) and (chain A and not resn ZN)
+States inspected: 25
+Atoms selected:
+  All: 865
+  Heavy (no H): 439
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+########################################
+
+======================== RMS Summary ========================
+Mode              #atoms   #values       mean         sd
+------------------------------------------------------------
+All atoms            865       600      2.939      0.670
+Heavy atoms          439       600      2.714      0.747
+------------------------------------------------------------
+Average RMS per state (showing NaN where unavailable):
+
+All atoms:
+State     Mean RMS     #pairs
+----------------------------------
+    1        3.338         24
+    2        2.640         24
+    3        3.039         24
+    4        3.096         24
+    5        2.624         24
+    6        4.168         24
+    7        2.654         24
+    8        3.306         24
+    9        2.640         24
+   10        2.760         24
+   11        3.324         24
+   12        2.524         24
+   13        2.977         24
+   14        2.649         24
+   15        2.743         24
+   16        2.721         24
+   17        2.776         24
+   18        2.811         24
+   19        2.522         24
+   20        3.061         24
+   21        2.852         24
+   22        3.938         24
+   23        2.858         24
+   24        2.660         24
+   25        2.806         24
+
+Heavy atoms (no H):
+State     Mean RMS     #pairs
+----------------------------------
+    1        3.182         24
+    2        2.365         24
+    3        2.827         24
+    4        2.890         24
+    5        2.378         24
+    6        4.088         24
+    7        2.392         24
+    8        3.174         24
+    9        2.394         24
+   10        2.495         24
+   11        3.173         24
+   12        2.260         24
+   13        2.662         24
+   14        2.385         24
+   15        2.495         24
+   16        2.486         24
+   17        2.530         24
+   18        2.530         24
+   19        2.274         24
+   20        2.867         24
+   21        2.614         24
+   22        3.816         24
+   23        2.614         24
+   24        2.430         24
+   25        2.535         24
+------------------------------------------------------------
+(Detailed per-pair output suppressed; set display_level==2 to enable)
+========================================================
+

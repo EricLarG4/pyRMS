@@ -1,0 +1,92 @@
+
+*****************************
+* RMS Statistics Calculator *
+*****************************
+
+The level of detail in this report has been set to => 1 (global average and per-state means included)
+
+############ Data selection ############
+Note: no explicit selection was provided, so the script selected all atoms in the object.
+If you want a subset (for example only chain A), pass a selection string via the 'selection' argument, e.g.: selection='chain A'
+It is not necessary to explicitely exlude hydrogen atoms. RMS statistics are calculated both including and excluding hydrogens automatically.
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Resolved selection: (1A1T) and (all)
+States inspected: 25
+Atoms selected:
+  All: 1516
+  Heavy (no H): 873
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+########################################
+
+======================== RMS Summary ========================
+Mode              #atoms   #values       mean         sd
+------------------------------------------------------------
+All atoms           1516       600      2.555      0.575
+Heavy atoms          873       600      2.318      0.596
+------------------------------------------------------------
+Average RMS per state (showing NaN where unavailable):
+
+All atoms:
+State     Mean RMS     #pairs
+----------------------------------
+    1        2.782         24
+    2        2.357         24
+    3        2.650         24
+    4        2.723         24
+    5        2.229         24
+    6        3.692         24
+    7        2.246         24
+    8        2.741         24
+    9        2.378         24
+   10        2.335         24
+   11        2.864         24
+   12        2.530         24
+   13        2.501         24
+   14        2.482         24
+   15        2.387         24
+   16        2.336         24
+   17        2.391         24
+   18        2.436         24
+   19        2.190         24
+   20        2.638         24
+   21        2.464         24
+   22        3.413         24
+   23        2.402         24
+   24        2.292         24
+   25        2.426         24
+
+Heavy atoms (no H):
+State     Mean RMS     #pairs
+----------------------------------
+    1        2.561         24
+    2        2.119         24
+    3        2.403         24
+    4        2.501         24
+    5        1.983         24
+    6        3.484         24
+    7        1.991         24
+    8        2.544         24
+    9        2.143         24
+   10        2.066         24
+   11        2.644         24
+   12        2.337         24
+   13        2.189         24
+   14        2.264         24
+   15        2.140         24
+   16        2.106         24
+   17        2.147         24
+   18        2.170         24
+   19        1.960         24
+   20        2.415         24
+   21        2.222         24
+   22        3.208         24
+   23        2.138         24
+   24        2.060         24
+   25        2.154         24
+------------------------------------------------------------
+(Detailed per-pair output suppressed; set display_level==2 to enable)
+========================================================
+

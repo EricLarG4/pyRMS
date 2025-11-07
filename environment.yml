@@ -1,0 +1,10 @@
+name: pyrms
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pymol-open-source>=2.5.0
+  - pip
+  - pip:
+      - typing-extensions>=4.0.0
+      - pathlib>=1.0
