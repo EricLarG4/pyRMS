@@ -10,6 +10,10 @@ PyRMS is a small Python utility and PyMOL plugin for calculating pairwise RMS de
 - Optional export of timestamped text reports\
 - Configurable verbosity and display levels
 
+## Online use (no install)
+
+The script can be modified and executed [there](https://mybinder.org/v2/gh/EricLarG4/pyRMS/977364510360a990ec76e95537c77a35a109eaad?urlpath=lab%2Ftree%2Fpairwise_rms.ipynb).
+
 ## Installation
 
 Choose one of the following install workflows.
